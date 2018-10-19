@@ -147,7 +147,7 @@ This should be a rather short blast operation, because we only have a few sequen
 
 ***Did you get any results at all?
 
-## Let's try a probabilistic approach with HMMER (Hidden Markov Model
+## Let's try a probabilistic approach with HMMER (HMMER: biosequence analysis using profile hidden Markov models)
 
 http://eddylab.org/software/hmmer/Userguide.pdf
 
@@ -160,7 +160,7 @@ There are two common sources for reference data sets for HMMER:
 1.) precomputed hmm profiles in public databases (e.g. Pfam from the Uniprot reference proteomes)
 2.) multiple sequence alignments
 
-We are going to do approach two first.
+We are going to do approach #2 first.
 
 We have a set of data already that we can create our own hmm profile from, the MyD88 set of data.
 
