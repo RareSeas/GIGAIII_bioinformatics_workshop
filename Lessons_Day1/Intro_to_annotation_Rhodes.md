@@ -1,6 +1,6 @@
 **Instructions for Annotation Tutorial for GIGA III 2018**
 
-This tutorial is specific to the files placed on the server.  For practice, you can upload your own genome and genes of interest and use the same protocol by changing the variables for $REFERENCE and $GOI
+This tutorial is specific to the files placed on the server.  For practice, you can upload your own genome and genes of interest and use the same protocol by changing the filenames to your reference and your gene of interest data set.
 
 ***We will start with a simple question - is my gene of interest in this particular genome?***
 
@@ -97,8 +97,16 @@ We will use Transdecoder to do this.
 
 ```
 conda
-conda install Transdecoder
+conda install transdecoder
 ```
+
+After installation, check to see if you get instructions for the program by running:
+
+```
+TransDecoder.LongOrfs
+```
+
+If not, retry the install.
 
 
 2.) Run the program on our reference genome.
@@ -112,11 +120,13 @@ TransDecoder.LongOrfs -t $REFERENCE
 
 ```
 
-## Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".
+## Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.
 
 This can take up to an hour, so we need to stop the program prematurely.  It won't hurt anything, so just hit Control-C after a few minutes.
 
 Now we need to make the peptide list a searchable blast database.
+
+1.) Copy the protein version of the genome into the annotation folder.
 
 ```
 cp ~/annotation/$REFERENCE.transdecoder_dir.__checkpoints_longorfs/longest_orfs.pep ~/annotation
@@ -125,18 +135,19 @@ cp ~/annotation/$REFERENCE.transdecoder_dir.__checkpoints_longorfs/longest_orfs.
 
 ##Note: your directory name may be slightly different, use ls to see what the directory name is before the copy
 
+2.) Make a blast database of the genome for searching.
+
+
 ```
 makeblastdb -in longest_orfs.pep -dbtype prot -title Bugula.pep -out Bugula.pep
 
 ```
-This creates a blast database for sesarching.
 
-Let's blast our sequences to see if we get a result.
+3.) Let's blast our sequences to see if we get a result.
 
 ```
-export GOI="~/annotation/MyD88.fasta"
 
-blastp -query MyD88.fasta -db Bugula.pep -outfmt 6 -evalue 1e-5 -out blastp.MyD88.Bugula.pep.outfmt6
+blastp -query ~/annotation/MyD88.fasta -db Bugula.pep -outfmt 6 -evalue 1e-5 -out blastp.MyD88.Bugula.pep.outfmt6
 
 ```
 ## Note: outfmt6 is a very versatile tool that can be used to output your gene hits as a table, read more about it here:
@@ -164,7 +175,17 @@ We are going to do approach #2 first.
 
 We have a set of data already that we can create our own hmm profile from, the MyD88 set of data.
 
+##Install hmmer and muscle
+
+```
+conda install hmmer
+conda install muscle
+
+```
+
 First we have to align the sequences (as we did when we were selecting the perfect set for our analysis).
+
+
 
 ```
 
