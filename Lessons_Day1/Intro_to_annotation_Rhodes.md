@@ -62,15 +62,18 @@ nano MyD88.fasta
 ```
 
 1.) Copy and paste the sequences from the text file we just created.
+    If you are using a traditional terminal (putty or iterm2) this is a right click.
+    If you are using the old web shell in Jetstream, right click and choose paste.
+    If you are using the new web shell in Jetstream, use control+alt+shift and follow the directions.
 
 2.) Control-X to save file
 
 
-***Putting data on your remote computer, method 2 - WinSCP, Cyberduck, Filezilla or other external program.
+### Putting data on your remote computer, method 2 - WinSCP, Cyberduck, Filezilla or other external program.
 
 Using the key provided in the slack, you can add an authorization to your log-in to allow for a remote connection to view files.  We will demonstrate if time allows.
 
-***Putting data on your remote computer, method 3 - Start Rstudio (which we pre-installed for the class) and transfer files.
+### Putting data on your remote computer, method 3 - Start Rstudio (which we pre-installed for the class) and transfer files.
 
 Lisa can demonstrate if we have time and if we cannot get the data into the system quickly using one of the other methods.
 
@@ -199,8 +202,8 @@ We have a set of data already that we can create our own hmm profile from, the M
 ##Install hmmer and muscle
 
 ```
+
 conda install hmmer
-conda install muscle
 
 ```
 
@@ -229,6 +232,13 @@ First we have to align the sequences (as we did when we were selecting the perfe
 ```
 
 muscle -in MyD88.fasta -out MyD88.msa
+
+```
+
+Take a look inside the file to see if the alignments make sense.  Kick out any sequences that are making the sequences less cohesive.
+
+```
+less -S MyD88.msa
 
 ```
 
