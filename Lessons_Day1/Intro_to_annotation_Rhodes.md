@@ -33,22 +33,28 @@ etc., many more
 
 Let's create a file to test for the presence of MyD88
 
-Navigate to uniprot.org
+1.) Navigate to uniprot.org
 
-Search for non-mammalian, non-arthropod MyD88 proteins.
+2.) Search for non-mammalian, non-arthropod MyD88 proteins.
 
-Make a text file that holds the resulting fasta sequences for use in a few minutes.
+3.) Make a text file that holds the resulting fasta sequences for use in a few minutes.  For this demo, call it MyD88.fasta
 
 What is the Uniprot database?
 
 https://www.uniprot.org/downloads
+
+What is MyD88?
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109969/
 
 
 ---
 
 ## Terminal Practice
 
-Log into the server and follow these steps
+Log into the server and follow these steps.
+
+#Putting data into your remote computer, method 1 - creating a file and copying and pasting information.
 
 ```
 nano MyD88.fasta
@@ -70,7 +76,7 @@ wget https://de.cyverse.org/dl/d/A47FAD90-1837-4868-8896-61231F14F779/genome_can
 
 ```
 
-Protein to Protein searches are more efficient in Blast, so let's convert our genome into a set of proteins instead of nucleotides.
+***Protein to Protein searches are more efficient in Blast, so let's convert our genome into a set of proteins instead of nucleotides.***
 
 We will use Transdecoder to do this, what are some reasons why converting our raw scaffold into proteins will help us find our proteins?
 
@@ -85,6 +91,8 @@ Now we need to make the peptide list a searchable blast database.
 
 ```
 cp genome_canu_filtered.fasta.transdecoder_dir.__checkpoints_longorfs/longest_orfs.pep .
+
+```
 
 ##Note: your directory name may be slightly different, use ls to see what the directory name is before the copy
 
