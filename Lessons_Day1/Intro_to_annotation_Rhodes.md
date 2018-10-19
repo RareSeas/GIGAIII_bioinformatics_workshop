@@ -54,7 +54,7 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109969/
 
 Log into the server and follow these steps.
 
-# Putting data into your remote computer, method 1 - creating a file and copying and pasting information.
+### Putting data on your remote computer, method 1 - creating a file and copying and pasting information.
 
 ```
 nano MyD88.fasta
@@ -66,7 +66,17 @@ nano MyD88.fasta
 2.) Control-X to save file
 
 
-# Putting data into your remote computer, method 2 - download a file from an ftp or http location.
+### Putting data on your remote computer, method 2 - WinSCP, Cyberduck, Filezilla or other external program.
+
+Using the key provided in the slack, you can add an authorization to your log-in to allow for a remote connection to view files.  We will demonstrate if time allows.
+
+### Putting data on your remote computer, method 3 - Start Rstudio (which we pre-installed for the class) and transfer files.
+
+Lisa can demonstrate if we have time and if we cannot get the data into the system quickly using one of the other methods.
+
+### Putting data on your remote computer, method 3 - download a file from an ftp or http location.
+
+A direct link between remote computers avoids the time and effort of downloading files to your personal computer first.  This is a good option for genomes.
 
 ```
 cd ~
@@ -83,19 +93,33 @@ We will use Transdecoder to do this.
 
 ***What are some reasons why converting our raw scaffold into proteins will help us find our proteins?
 
+1.) Load the program Transdecoder into our instance
+
+```
+conda
+conda install Transdecoder
+```
+
+
+2.) Run the program on our reference genome.
 
 
 ```
-TransDecoder.LongOrfs -t genome_canu_filtered.fasta
+
+export REFERENCE="~/annotation/genome_canu_filtered.fasta"
+
+TransDecoder.LongOrfs -t $REFERENCE
 
 ```
+
+## Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".
 
 This can take up to an hour, so we need to stop the program prematurely.  It won't hurt anything, so just hit Control-C after a few minutes.
 
 Now we need to make the peptide list a searchable blast database.
 
 ```
-cp ~/annotation/genome_canu_filtered.fasta.transdecoder_dir.__checkpoints_longorfs/longest_orfs.pep ~/annotation
+cp ~/annotation/$REFERENCE.transdecoder_dir.__checkpoints_longorfs/longest_orfs.pep ~/annotation
 
 ```
 
@@ -110,6 +134,8 @@ This creates a blast database for sesarching.
 Let's blast our sequences to see if we get a result.
 
 ```
+export GOI="~/annotation/MyD88.fasta"
+
 blastp -query MyD88.fasta -db Bugula.pep -outfmt 6 -evalue 1e-5 -out blastp.MyD88.Bugula.pep.outfmt6
 
 ```
@@ -119,9 +145,9 @@ https://www.ncbi.nlm.nih.gov/books/NBK279682/
 
 This should be a rather short blast operation, because we only have a few sequences.
 
-Did you get any results at all?
+***Did you get any results at all?
 
-Let's try a probabilistic approach.
+## Let's try a probabilistic approach with HMMER (Hidden Markov Model
 
 http://eddylab.org/software/hmmer/Userguide.pdf
 
