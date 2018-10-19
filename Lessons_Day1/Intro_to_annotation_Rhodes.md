@@ -1,4 +1,4 @@
-**Instructions for Annotation Tutorial for GIGA III 2018**
+**Instructions for Annotation Tutorial for GIGA III 2018
 
 This tutorial is specific to the files placed on the server.  For practice, you can upload your own genome and genes of interest and use the same protocol by changing the filenames to your reference and your gene of interest data set.
 
@@ -123,7 +123,7 @@ TransDecoder.LongOrfs -t $REFERENCE
 
 ```
 
-**Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.
+***Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.***
 
 This can take up to an hour, so we need to stop the program prematurely.  It won't hurt anything, so just hit Control-C after a few minutes.
 
