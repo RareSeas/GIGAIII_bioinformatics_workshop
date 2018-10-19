@@ -142,7 +142,7 @@ TransDecoder.LongOrfs -t $REFERENCE
 
 ```
 
-### Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.***
+#### Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.***
 
 This can take up to an hour, so we need to stop the program prematurely.  It won't hurt anything, so just hit Control-C after a few minutes.
 
@@ -155,7 +155,7 @@ First, install the blast tools set from NCBI:
 sudo apt install ncbi-blast+
 
 ```
-### Note: using sudo is usually reserved for machine owners.  In this course, we can install programs because we make our own machines.  This will not work if you are on a privately managed server, such as a university HPC.  Please consult with your system administrators on best practices for installing programs.
+#### Note: using sudo is usually reserved for machine owners.  In this course, we can install programs because we make our own machines.  This will not work if you are on a privately managed server, such as a university HPC.  Please consult with your system administrators on best practices for installing programs.
 
 Check the install.
 
@@ -173,7 +173,7 @@ cp ~/annotation/$REFERENCE.transdecoder_dir.__checkpoints_longorfs/longest_orfs.
 
 ```
 
-### Note: your directory name may be slightly different, use ls to see whusing at the directory name is before the copy
+#### Note: your directory name may be slightly different, use ls to see whusing at the directory name is before the copy
 
 2.) Make a blast database of the genome for searching.
 
@@ -190,7 +190,7 @@ makeblastdb -in longest_orfs.pep -dbtype prot -title Bugula.pep -out Bugula.pep
 blastp -query ~/annotation/MyD88.fasta -db Bugula.pep -outfmt 6 -evalue 1e-5 -out blastp.MyD88.Bugula.pep.outfmt6
 
 ```
-## Note: outfmt6 is a very versatile tool that can be used to output your gene hits as a table, read more about it here:
+#### Note: outfmt6 is a very versatile tool that can be used to output your gene hits as a table, read more about it here:
 
 https://www.ncbi.nlm.nih.gov/books/NBK279682/
 
