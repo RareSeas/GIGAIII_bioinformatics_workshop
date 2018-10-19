@@ -33,7 +33,7 @@ etc., many more
 
 Let's create a file to test for the presence of MyD88
 
-1.) Navigate to uniprot.org
+1.) Navigate to http://uniprot.org
 
 2.) Search for non-mammalian, non-arthropod MyD88 proteins.
 
