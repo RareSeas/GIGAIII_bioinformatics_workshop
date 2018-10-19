@@ -80,7 +80,9 @@ A direct link between remote computers avoids the time and effort of downloading
 
 ```
 cd ~
+
 mkdir annotation
+
 cd ~/annotation
 
 wget https://de.cyverse.org/dl/d/A47FAD90-1837-4868-8896-61231F14F779/genome_canu_filtered.fasta
@@ -97,6 +99,7 @@ We will use Transdecoder to do this.
 
 ```
 conda
+
 conda install transdecoder
 ```
 
@@ -126,6 +129,24 @@ This can take up to an hour, so we need to stop the program prematurely.  It won
 
 Now we need to make the peptide list a searchable blast database.
 
+First, install the blast tools set from NCBI:
+
+```
+
+sudo apt install ncbi-blast+
+
+```
+**Note: using sudo is usually reserved for machine owners.  In this course, we can install programs because we make our own machines.  This will not work if you are on a privately managed server, such as a university HPC.  Please consult with your system administrators on best practices for installing programs.
+
+Check the install.
+
+```
+
+makeblastdb
+
+```
+
+
 1.) Copy the protein version of the genome into the annotation folder.
 
 ```
@@ -133,7 +154,7 @@ cp ~/annotation/$REFERENCE.transdecoder_dir.__checkpoints_longorfs/longest_orfs.
 
 ```
 
-##Note: your directory name may be slightly different, use ls to see what the directory name is before the copy
+**Note: your directory name may be slightly different, use ls to see whusing at the directory name is before the copy
 
 2.) Make a blast database of the genome for searching.
 
@@ -240,6 +261,8 @@ hmmscan --domtblout Bugula.MyD88.domtblout MyD88.hmm Bugula.pep
 Look at the results in the Bugula.MyD88.domtblout
 
 Are there any potential matches to our hmm model?
+
+---
 
 ##Predict multiple genes simultaneously
 
