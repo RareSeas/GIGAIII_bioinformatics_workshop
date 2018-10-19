@@ -315,8 +315,8 @@ Also let this run for a few minutes and terminate early with Control-C
 
 Let's take a look at our data and discuss a few things.
 
-1.) How much does the reference database influence our ability to annotate the Bugula genome?
-2.) Which approach was more sensitive - local alignments with BLAST or hmm profile search with HMMER?
-3.) What strategies might you use with these two tools to improve your annotations?
+    1.) How much does the reference database influence our ability to annotate the Bugula genome?
+    2.) Which approach was more sensitive - local alignments with BLAST or hmm profile search with HMMER?
+    3.) What strategies might you use with these two tools to improve your annotations?
 
 Thank you!
