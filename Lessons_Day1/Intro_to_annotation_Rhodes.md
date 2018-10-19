@@ -35,9 +35,18 @@ Let's create a file to test for the presence of MyD88
 
 1.) Navigate to http://uniprot.org
 
-2.) Search for non-mammalian, non-arthropod MyD88 proteins.
+2.) Search for non-vertebrate, non-arthropod MyD88 proteins. 
+
+    A.) gene:myd88 NOT taxonomy:"Vertebrata [7742]" NOT taxonomy:"Arthropoda [6656]"
+    B.) Select all the sequences (should be 18 remaining) and choose "align".
+    C.) Kick out outliers (I removed A0A2B4S3X5, A0A2B4SJ75, A0A2B4RT06, Q4W1E7_SUBDO)
+    D.) Return to main screen and choose "download" and format Fasta (canonical)
+    E.) Copy and paste the text directly into the terminal or make a file on your desktop using notepad.
+    
+    ##Note: don't use Microsoft word for text copy/paste for command line, it adds hidden characters which will mess up the code.
 
 3.) Make a text file that holds the resulting fasta sequences for use in a few minutes.  For this demo, call it MyD88.fasta
+
 
 What is the Uniprot database?
 
@@ -68,6 +77,17 @@ nano MyD88.fasta
 
 2.) Control-X to save file
 
+If you get stuck, here is a way to download it directly:
+
+```
+cd ~
+
+mkdir annotation
+
+cd ~/annotation
+
+wget https://de.cyverse.org/dl/d/E9A541A2-907C-459F-8133-4F559CE0F3F1/MyD88.fasta
+```
 
 ### Putting data on your remote computer, method 2 - WinSCP, Cyberduck, Filezilla or other external program.
 
@@ -82,10 +102,6 @@ Lisa can demonstrate if we have time and if we cannot get the data into the syst
 A direct link between remote computers avoids the time and effort of downloading files to your personal computer first.  This is a good option for genomes.
 
 ```
-cd ~
-
-mkdir annotation
-
 cd ~/annotation
 
 wget https://de.cyverse.org/dl/d/A47FAD90-1837-4868-8896-61231F14F779/genome_canu_filtered.fasta
