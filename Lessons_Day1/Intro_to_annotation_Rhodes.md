@@ -43,7 +43,7 @@ Let's create a file to test for the presence of MyD88
     D.) Return to main screen and choose "download" and format Fasta (canonical)
     E.) Copy and paste the text directly into the terminal or make a file on your desktop using notepad.
     
-    ##Note: don't use Microsoft word for text copy/paste for command line, it adds hidden characters which will mess up the code.
+### Note: don't use Microsoft word for text copy/paste for command line, it adds hidden characters which will mess up the code.
 
 3.) Make a text file that holds the resulting fasta sequences for use in a few minutes.  For this demo, call it MyD88.fasta
 
@@ -97,7 +97,7 @@ Using the key provided in the slack, you can add an authorization to your log-in
 
 Lisa can demonstrate if we have time and if we cannot get the data into the system quickly using one of the other methods.
 
-***Putting data on your remote computer, method 3 - download a file from an ftp or http location.
+### Putting data on your remote computer, method 3 - download a file from an ftp or http location.
 
 A direct link between remote computers avoids the time and effort of downloading files to your personal computer first.  This is a good option for genomes.
 
@@ -142,7 +142,7 @@ TransDecoder.LongOrfs -t $REFERENCE
 
 ```
 
-***Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.***
+### Note: you can replace the demonstration reference with your genome for practice later on.  Using a variable called "reference" allows us to write code once and reuse it by just re-setting what we mean by "reference".  Using variables in your script can help you be more efficient as you can try multiple searches using the same script just by changing the reference, or feeding a list of reference genomes into your bash script.***
 
 This can take up to an hour, so we need to stop the program prematurely.  It won't hurt anything, so just hit Control-C after a few minutes.
 
@@ -155,7 +155,7 @@ First, install the blast tools set from NCBI:
 sudo apt install ncbi-blast+
 
 ```
-**Note: using sudo is usually reserved for machine owners.  In this course, we can install programs because we make our own machines.  This will not work if you are on a privately managed server, such as a university HPC.  Please consult with your system administrators on best practices for installing programs.
+### Note: using sudo is usually reserved for machine owners.  In this course, we can install programs because we make our own machines.  This will not work if you are on a privately managed server, such as a university HPC.  Please consult with your system administrators on best practices for installing programs.
 
 Check the install.
 
@@ -173,7 +173,7 @@ cp ~/annotation/$REFERENCE.transdecoder_dir.__checkpoints_longorfs/longest_orfs.
 
 ```
 
-**Note: your directory name may be slightly different, use ls to see whusing at the directory name is before the copy
+### Note: your directory name may be slightly different, use ls to see whusing at the directory name is before the copy
 
 2.) Make a blast database of the genome for searching.
 
@@ -198,7 +198,7 @@ This should be a rather short blast operation, because we only have a few sequen
 
 ***Did you get any results at all?
 
-## Let's try a probabilistic approach with HMMER (HMMER: biosequence analysis using profile hidden Markov models)
+### Let's try a probabilistic approach with HMMER (HMMER: biosequence analysis using profile hidden Markov models)
 
 http://eddylab.org/software/hmmer/Userguide.pdf
 
