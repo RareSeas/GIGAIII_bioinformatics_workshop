@@ -54,23 +54,24 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109969/
 
 Log into the server and follow these steps.
 
-#Putting data into your remote computer, method 1 - creating a file and copying and pasting information.
+# Putting data into your remote computer, method 1 - creating a file and copying and pasting information.
 
 ```
 nano MyD88.fasta
 
 ```
 
-copy and paste the sequences from the text file we just created.
+1.) Copy and paste the sequences from the text file we just created.
 
-Control-X to save file
+2.) Control-X to save file
 
-Copy genome into home directory.
+
+# Putting data into your remote computer, method 2 - download a file from an ftp or http location.
 
 ```
-cd ~/mydirectory/
+cd ~
 mkdir annotation
-cd ~/mydirectory/annotation
+cd ~/annotation
 
 wget https://de.cyverse.org/dl/d/A47FAD90-1837-4868-8896-61231F14F779/genome_canu_filtered.fasta
 
@@ -78,7 +79,11 @@ wget https://de.cyverse.org/dl/d/A47FAD90-1837-4868-8896-61231F14F779/genome_can
 
 ***Protein to Protein searches are more efficient in Blast, so let's convert our genome into a set of proteins instead of nucleotides.***
 
-We will use Transdecoder to do this, what are some reasons why converting our raw scaffold into proteins will help us find our proteins?
+We will use Transdecoder to do this.
+
+***What are some reasons why converting our raw scaffold into proteins will help us find our proteins?
+
+
 
 ```
 TransDecoder.LongOrfs -t genome_canu_filtered.fasta
@@ -90,14 +95,14 @@ This can take up to an hour, so we need to stop the program prematurely.  It won
 Now we need to make the peptide list a searchable blast database.
 
 ```
-cp genome_canu_filtered.fasta.transdecoder_dir.__checkpoints_longorfs/longest_orfs.pep .
+cp ~/annotation/genome_canu_filtered.fasta.transdecoder_dir.__checkpoints_longorfs/longest_orfs.pep ~/annotation
 
 ```
 
 ##Note: your directory name may be slightly different, use ls to see what the directory name is before the copy
 
-makeblastdb -in longest_orfs.pep -dbtype prot -title Bugula.peps -out Bugula.pep
-
+```
+makeblastdb -in longest_orfs.pep -dbtype prot -title Bugula.pep -out Bugula.pep
 
 ```
 This creates a blast database for sesarching.
@@ -108,6 +113,9 @@ Let's blast our sequences to see if we get a result.
 blastp -query MyD88.fasta -db Bugula.pep -outfmt 6 -evalue 1e-5 -out blastp.MyD88.Bugula.pep.outfmt6
 
 ```
+## Note: outfmt6 is a very versatile tool that can be used to output your gene hits as a table, read more about it here:
+
+https://www.ncbi.nlm.nih.gov/books/NBK279682/
 
 This should be a rather short blast operation, because we only have a few sequences.
 
