@@ -1,4 +1,4 @@
-**Instructions for Annotation Tutorial for GIGA III 2018
+## Instructions for Annotation Tutorial for GIGA III 2018
 
 This tutorial is specific to the files placed on the server.  For practice, you can upload your own genome and genes of interest and use the same protocol by changing the filenames to your reference and your gene of interest data set.
 
