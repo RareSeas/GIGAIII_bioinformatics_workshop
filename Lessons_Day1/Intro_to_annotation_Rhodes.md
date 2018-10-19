@@ -66,15 +66,15 @@ nano MyD88.fasta
 2.) Control-X to save file
 
 
-### Putting data on your remote computer, method 2 - WinSCP, Cyberduck, Filezilla or other external program.
+***Putting data on your remote computer, method 2 - WinSCP, Cyberduck, Filezilla or other external program.
 
 Using the key provided in the slack, you can add an authorization to your log-in to allow for a remote connection to view files.  We will demonstrate if time allows.
 
-### Putting data on your remote computer, method 3 - Start Rstudio (which we pre-installed for the class) and transfer files.
+***Putting data on your remote computer, method 3 - Start Rstudio (which we pre-installed for the class) and transfer files.
 
 Lisa can demonstrate if we have time and if we cannot get the data into the system quickly using one of the other methods.
 
-### Putting data on your remote computer, method 3 - download a file from an ftp or http location.
+***Putting data on your remote computer, method 3 - download a file from an ftp or http location.
 
 A direct link between remote computers avoids the time and effort of downloading files to your personal computer first.  This is a good option for genomes.
 
@@ -183,9 +183,27 @@ conda install muscle
 
 ```
 
-First we have to align the sequences (as we did when we were selecting the perfect set for our analysis).
+Check the install of hmmer by typing the following and seeing if the instructions are provided.
 
+```
+hmmscan
+```
 
+## Install muscle
+
+```
+conda install muscle
+```
+
+Check the install by typing the following and checking for the instructions.
+
+```
+muscle
+```
+
+## Align sequences
+
+First we have to align the sequences (as we did when we were selecting the perfect set for our analysis).  It is important to eyeball them at some point to make sure that they are not composed of non-overlapping, too long or too short sequences.  We did our original scan on uniprot.  This can also be done on NCBI and through the online version of muscle.  It is better to be more conservative in the number of sequences rather than trying to include **everything**.  Some databases contain mislabeled sequences that can confound your search for proteins.
 
 ```
 
